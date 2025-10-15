@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    position: relative;
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+.navbar{
+    height: 13vh;
+    width: 100%;
+    background: linear-gradient(45deg, rgb(203, 16, 255), rgb(255, 169, 20) 60%);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    z-index: 10;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    gap: 1.4em;
+    margin-right: 5%;
+}
+
+.Logo{
+    position: absolute;
+    left: 7%;
+}
+
+.Logo1{
+    width: 12vh;
+    height: auto;
+    display: flex;
+}
+
+.nav-item{
+    list-style: none;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    transition: 500ms;
+    font-weight: 600;
+}
+
+.nav-item a:hover{
+    color: rgb(233, 67, 255);
+}
+
+#Colabore{
+    width: 10em;
+    height: 3.5em;
+    background-color: rgb(255, 0, 234); 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4vh;
+    transition: 500ms;
+}
+
+#Colabore:hover{
+    background-color: rgb(213, 77, 255);
+    transform: scale(1.1);
+}
+
+h1{
+    font-size: 3rem;
+}
+p{
+    font-size: 2rem;
+}
+
+.acesso-gestao{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+    background-color: rgb(255, 178, 34);
+    gap: 40px;
+    border-radius: 5px;
+    animation: flutuar 2s ease-in-out infinite;
+}
+
+.login, .Senha{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 390px;
+    height: 40px;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(217, 65, 255);
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    transition: 1s;
+}
+
+.acesso-gestao button:hover{
+    background-color: rgb(220, 21, 255);
+    transform: scale(1.06);
+}
+
+.rodape{
+    margin-top: 5vh;
+    background-image: url(img/Rectangle\ 50.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-rodape img{
+    position: absolute;
+    bottom: 8vh;
+    left: 7vh;
+    width: 45vh;
+}
+.inf-rodape{
+    width: 65%;
+    bottom: 15vh;
+    left:29%;
+    position: absolute;
+    display: flex;
+    gap: 3%;
+    font-size: clamp(1rem, 1.7rem, 1.8rem);
+    color: black;
+    text-align: justify;
+}
+
+.insta, .facebook, .youtube, .whatsapp, .email{
+    display: flex;
+    margin-top: 3vh;
+}
+
+.redes, .formas-contato, .localizacao{
+    align-items: center;
+}
+
+.redes, .formas-contato, p{
+    margin-left: 1vh;
+}
+
+.rodape h1{
+    font-size: 2.5rem;
+}
+
+.localizacao{
+    max-width: 25vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+@media (max-width:1600px){
+        .inf-rodape{
+        bottom: 10vh;
+        left: 28%;
+    }
+
+    .rodape h1{
+        font-size: 2.5rem;
+    }
+    .rodape p{
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    background-color: #FFF2CF;
+    overflow-y: hidden;
+    flex-direction: row;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+}
+
+.navbar{
+    padding: 40px;
+    min-height: 90vh;
+    height: auto;
+    width: 350px;
+    background:linear-gradient(160deg, rgb(255, 175, 14) 60%, rgb(255, 219, 147));
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar img{
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list{
+    margin-right: 150px;
+    margin-bottom: 150px;
+}
+
+.nav-list ul{
+    border-left: 2px solid black;
+}
+
+ul{
+    list-style: none;
+}
+
+.nav-list li{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    font-size: 1.6rem;
+
+}
+.nav-list p{
+    font-size: 1.9rem;
+}
+
+.nav-list img{
+    width: 40px;
+    margin-right: 5px;
+}
+
+.nav-list li{
+    display: flex;
+    align-items: center;
+}
+h1{
+    width: 200px;
+    margin-left: 120px;
+    font-size: 5rem;
+    width: 700px;
+    margin-top: 30px;
+}
+
+.numero{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.sair-conta{
+    margin-top: -150px;
+    margin-right: 150px;
+}
+
+.sair-conta ul{
+    width: 190px;
+}
+
+.sair-conta li{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.sair-conta img{
+    width: 40px;
+}
+
+.navbar button{
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.perfil{
+    position: absolute;
+    top: 4%;
+    right: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-perfil {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    position: relative;
+    cursor: pointer;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.foto-perfil:hover img {
+    opacity: 0.7; 
+}
+
+.foto-perfil input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.voluntarios{
+    margin-top: 50px;
+    margin-right: 150px;
+    margin-left: 62px;
+}
+.lista-voluntarios{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    width: 800px;
+    height: 100%;
+    background-color: rgb(255, 178, 61);
+    border: 3px solid black;
+}
+
+.voluntario-cadastrado{
+    border: 3px solid black;
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(255, 202, 129);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.voluntarios h1{
+    margin-left: 0;
+}
+
+.excluir{
+    background-color: red;
+}
+
+.editar{
+    background-color: rgb(190, 10, 255);
+}
+
+.voluntario-cadastrado img{
+    height: 8vh;
+}
+
+.voluntario-cadastrado p{
+    font-size: 1.7rem;
+}
+
+.voluntario-cadastrado button{
+    height: 70%;
+    width: 150px;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    border-radius: 30px;
+        color: white;
+}
+
+    .cadastro {
+        margin-top: 50px;
+    display: block;
+    height: 60px;
+    width: 200px;
+    background-color: #ccc;
+    border: 2px solid black;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    /* fundo escuro do modal */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* conteúdo do modal */
+    .modal-content {
+      width: 400px;
+      background-color: rgb(255, 192, 76);
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* botão de fechar */
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    /* inputs e labels */
+    form {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-left: 10%;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input {
+      width: 80%;
+      padding: 8px;
+      border: 1px solid #999;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      background-color: #a602ff;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 25%;
+    }
+
+    .submit-btn:hover {
+      background-color: #cc8400;
+    }
+
+    /* imagem de preview */
+    .preview-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .preview-container img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #333;
+    }
+
+    .upload-btn {
+        margin-left: 30%;
+        width: 40%;
+        height: 50px;
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #9c1aff;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    #imagem {
+      display: none;
+    }
+
+@media (max-width:1600px){
+    .navbar{
+        height: 91vh
+    }
+    .logo-nav{
+        width: 80%;
+    }
+    .navbar p{
+        font-size: 1.8rem;
+    }
+    .navbar a{
+        font-size: 1.6rem;
+    }
+    .nav-list img{
+        width: 90%;
+    }
+    .sair-conta{
+        position: absolute;
+        bottom: 5%;
+    }
+}

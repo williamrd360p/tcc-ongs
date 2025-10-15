@@ -1,0 +1,639 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    position: relative;
+    overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.navbar{
+    height: 13vh;
+    width: 100%;
+    background: linear-gradient(45deg, rgb(203, 16, 255), rgb(255, 169, 20) 60%);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    z-index: 10;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    gap: 1.4em;
+    margin-right: 5%;
+}
+
+.Logo{
+    position: absolute;
+    left: 7%;
+}
+
+.Logo1{
+    width: 12vh;
+    height: auto;
+    display: flex;
+}
+
+.nav-item{
+    list-style: none;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    transition: 500ms;
+    font-weight: 600;
+}
+
+.nav-item a:hover{
+    color: rgb(233, 67, 255);
+}
+
+#Colabore{
+    width: 10em;
+    height: 3.5em;
+    background-color: rgb(255, 0, 234); 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4vh;
+    transition: 500ms;
+}
+
+#Colabore:hover{
+    background-color: rgb(213, 77, 255);
+    transform: scale(1.1);
+}
+
+.Tela-inicial {
+    z-index: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    flex-direction: column;
+    box-shadow: 0px 7px 6px black;
+}
+
+
+.Inicio{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 10;
+}
+
+.Logo-inicio {
+    position: absolute;
+    width: clamp(22vw, 25vw, 30em);
+    top: 270px
+}
+
+.desc-inicio{
+    position: absolute;
+    color: white;
+    max-width: 70%;
+    text-align: center;
+    height: 25vw;
+    background: linear-gradient( #ffbb28e9, rgba(255, 173, 66, 0.893));
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-inicio p{
+    font-size: 1.6rem;
+    max-width: 85%;
+}
+
+.desc-inicio h2{
+    font-size: clamp(1rem, 5vw, 4rem);
+    margin-bottom: 1px;
+}
+
+.desc-inicio button{
+    margin: 2vh;
+    width: clamp(10vw, 15vw, 70%);
+    height: 8vh;
+    background-color: rgb(197, 49, 255);
+    font-weight: 600;
+    color: white;
+    font-size: 0.8rem;
+    transition: 500ms;
+}
+
+.desc-inicio button:hover{
+    transform: scaleX(1.1);
+}
+
+.redes-sociais{
+  padding: 2vh;
+  height: clamp(4vh, 7vw, 20%);
+  width: 39vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffd117d7;
+  gap: 7vh;
+}
+
+.redes-sociais a{
+  color: rgb(0, 0, 0);
+  font-size: 4.5rem;
+  transition: 400ms ease-in-out;
+}
+
+.redes-sociais a:hover{
+  transform: scale(1.1);
+}
+
+.facebook { color: #0067ed; }
+.whatsapp { color: #08ef00; }
+.instagram {
+  background: linear-gradient(#ee00ff,rgb(255, 162, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Nossas-aulas{
+    width: 100%;
+}
+
+.carrossel-pai{
+    position: absolute;
+    right: 8.9vh;
+    top: 100vh;
+    height: 175vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.carrossel-imagens{
+  z-index: -1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: Carrossel-subir 15s linear infinite;
+}
+
+@keyframes Carrossel-subir{
+  0%{
+    transform: translateY(-120px);
+  }
+
+  100%{
+    transform: translateY(-1100px);
+  }
+}
+
+.carrossel-imagens img{
+  margin-top: -100px;
+  border-radius: 10px;
+  max-width: 270px;
+  transition: transform 800ms;
+}
+
+.C2-1{
+  margin-left: 300px;
+}
+
+.C2-3{
+  margin-left: 300px;
+}
+
+.Nossas-aulas2{
+    max-width: 40rem;
+    margin-top: 5vw;
+    margin-left: 7vw;
+}
+
+.Nossas-aulas2 h1{
+  font-size: 3.8rem;
+  margin-bottom: 1vh;
+  background: linear-gradient(30deg, #ffa10a, rgb(214, 9, 255) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Nossas-aulas2 p{
+    font-size: 1.7em;
+    width: 26rem;
+}
+
+.Nossas-aulas2 ul{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+
+}
+
+.Nossas-aulas2 button{
+    margin-top: 2vw;
+    height: 12vh;
+    width: 60%;
+    font-size: 2rem;
+    color: white;
+    background-color: #c906ff;
+    border-radius: 4px;
+    transition: 700ms ease-in-out;
+}
+
+.Nossas-aulas2 button:hover{
+    transform: scale(1.03);
+    box-shadow: 3px 3px 3px black;
+    background-color: #ff2af8;
+}
+
+.Impacto {
+    position: relative;
+    margin-top: 10vw;
+    max-width: 100%;
+    height: 100vh;
+    background-image: url("img/Mídia (20).jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
+.desc-impacto{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: #ffbb4ecf;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.desc-impacto h1{
+    max-width: 100%;
+    margin: 2vh;
+    font-size: clamp(2rem, 8vh, 3.5rem);
+}
+
+.desc-impacto hr{
+    width: 99.8%;
+}
+
+.desc-impacto p{
+    margin-top: 2vh;
+    max-width: 90%;
+    font-size: clamp(0.6rem, 3.6vh, 2.2rem);
+}
+
+.desc-impacto button{
+    margin-top: 2vw;
+    height: 10%;
+    width: 30%;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+    background-color: #ee00ff;
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.desc-impacto button:hover{
+    background-color: #c906ff;
+    transform: scale(1.1);
+}
+
+.Como-ajudar{
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Como-ajudar h1{
+    font-size: 4rem;
+    background: linear-gradient(90deg, rgb(227, 0, 247), rgb(255, 210, 10) 99%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.desc-ajuda{
+    margin: 2vh;
+    font-size: clamp(1rem, 7vw, 1.9rem);
+}
+
+.container-fc{
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.forma-colaborar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vh;
+    height: 450px;
+    width: 40vh;
+    background-color: #ffaf2e;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: clamp(1.2rem, 1.5rem, 1.3rem);
+    font-weight: 600;
+    transition: 800ms ease;
+}
+
+.forma-colaborar h2{
+    color: white;
+    font-size: 2rem;
+}
+
+.forma-colaborar img{
+    max-width: 50%;
+}
+
+.forma-colaborar:hover{
+    background-color: #c45fff;
+    transform: scale(1.05);
+}
+
+.Como-ajudar button{
+    margin: 5vh;
+    height: 12vh;
+    width: 45vh;
+    font-size: 1.5rem;
+    background-color: #ce1dff;
+    color: white;
+    border-radius: 0.5vw;
+    transition: 500ms ease;
+}
+
+.Como-ajudar button:hover{
+    transform: scale(1.05);
+}
+.desc-espaco{
+    padding: 10px;
+    background-image: url(img/Frame\ 19.png);
+    background-size: cover;
+    background-position: center;
+    height: 82vh;
+    width: 100%;
+}
+
+.desc-espaco1{
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 50%;
+    height: 80%;
+}
+
+.desc-espaco h1{
+    font-size: clamp(4rem, 5rem, 6.5rem);
+    background: linear-gradient(90deg, rgb(174, 0, 255), rgb(255, 23, 224) 99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.desc-espaco1 p{
+    font-size: clamp(2rem, 2.2rem, 3rem);
+}
+
+.quem-somos{
+    margin: 5vh;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1vh;
+}
+
+.roxo {
+  color: rgb(190, 24, 255);
+  font-weight: bold;
+}
+
+.rodape{
+    margin-top: 5vh;
+    background-image: url(img/Rectangle\ 50.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-rodape img{
+    position: absolute;
+    bottom: 8vh;
+    left: 7vh;
+    width: 45vh;
+}
+.inf-rodape{
+    width: 65%;
+    bottom: 20vh;
+    left:33%;
+    position: absolute;
+    display: flex;
+    gap: 3%;
+    font-size: clamp(1rem, 1.7rem, 1.8rem);
+    color: black;
+    text-align: justify;
+}
+
+.insta, .facebook, .youtube, .whatsapp, .email{
+    display: flex;
+    margin-top: 3vh;
+}
+
+.redes, .formas-contato, .localizacao{
+    align-items: center;
+}
+
+.redes, .formas-contato, p{
+    margin-left: 1vh;
+}
+
+.rodape h1{
+    font-size: 2.5rem;
+}
+
+.localizacao{
+    max-width: 25vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width:1600px){
+    .desc-espaco p{
+        font-size: 1.7rem;
+    }
+    .inf-rodape{
+        bottom: 10vh;
+        left: 28%;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width:800px){
+    .navbar{
+        height: 8%;
+    }
+    .nav-list{
+        display: none;
+    }
+    .Logo1{
+    width: 6vh;
+    }
+        .rodape{
+        position: relative;
+        height: 30vh;
+        width: 100%;
+    }
+    .logo-rodape img{
+        display: none;
+    }
+    .rodape h1{
+        font-size: 1rem;
+    }
+    .redes, .formas-contato, .localizacao{
+        max-width: 70%;
+    }
+    .Tela-inicial{
+        margin-top: 5vh;
+        height: 44vh;
+        width: 100%;
+    }
+    .desc-inicio{
+        padding-top: 1vh;
+        height: 3%;
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .redes-sociais{
+        display: none;
+    }
+    .Logo-inicio{
+        top: 3%;
+        width: 18%;
+    }
+    .desc-inicio h2{
+        font-size: 25px;
+    }
+
+    .desc-inicio p{
+        margin-top: 2px;
+        max-width: 90%;
+        font-size: 0.8rem;
+    }
+
+    .desc-inicio button{
+        width: 10vh;
+        height: 4vh;
+        font-size: 0.5rem;
+    }
+    .redes-sociais{
+        display: none;
+    }
+    .carrossel-pai, .carrossel-imagens{
+        display: none;
+    }
+    .Nossas-aulas2{
+        margin: 0;
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .Nossas-aulas h1{
+        font-size: 2.5rem;
+    }
+    .Nossas-aulas2 p{
+        font-size: 1.1em;
+        width: 24rem;
+    }
+    .Nossas-aulas ul{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.1em;
+        list-style: none;
+    }
+
+    .Nossas-aulas2 button{
+        width: 50%;
+        height: 8vh;
+        font-size: 1.5rem;
+    }
+    .Impacto{
+        max-width: 100%;
+        height: 70vh;
+    }
+    .desc-impacto{
+        width: 60%;
+    }
+    .desc-impacto h1{
+        font-size: 1.5rem;
+    }
+    .desc-impacto p{
+        width: 90%;
+        font-size: 1.05rem;
+    }
+    .desc-impacto button{
+        width: 50%;
+        height: 10%;
+        font-size: 0.8rem;
+    }
+    .container-fc{
+        flex-direction: column;
+    }
+    .forma-colaborar{
+        width: 33vh;
+        height: 46vh;
+        font-size: 1.3rem;
+    }
+    .Como-ajudar button{
+        width: 80%;
+    }
+    .desc-espaco{
+        height: 55vh;
+    }
+    .desc-espaco1{
+        width: 58%;
+        margin-left: 0;
+    }
+    .desc-espaco1 h1{
+        margin-left: 5px;
+        font-size: 2rem;
+    }
+    .desc-espaco1 p{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .quem-somos{
+        text-align: center;
+        font-size: 2rem;
+    }
+    .inf-rodape{
+        left: 1vh;
+        bottom: 5vh;
+        font-size: 0.7rem;
+    }
+}

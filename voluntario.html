@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="voluntario.css">
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+    <div class="container">
+<div class="navbar">
+    <div class="logo-nav">
+    <img src="img/LOGO.png" alt=""></div>
+        <div class="nav-list">
+          <p>PÁGINAS</p>
+          <ul>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/home" title="Créditos: Flaticon - ícone Home" target="_blank">
+                    <img src="img/home.png" alt="Home">
+                </a>
+                <a href="telainicial-sistema.html">Início</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/cogwheel" title="Créditos: Flaticon - ícone Administração" target="_blank">
+                    <img src="img/settings.png" alt="Administração">
+                </a>
+                <a href="administradores.html">Administração</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/user" title="Créditos: Flaticon - ícone Alunos" target="_blank">
+                    <img src="img/group.png" alt="Alunos">
+                </a>
+                <a href="alunos.html">Alunos</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/calendar" title="Créditos: Flaticon - ícone Calendário" target="_blank">
+                    <img src="img/calendar.png" alt="Calendário">
+                </a>
+                <a href="calendario.html">Calendário</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/care" title="Créditos: Flaticon - ícone Voluntários" target="_blank">
+                    <img src="img/love.png" alt="Voluntários">
+                </a>
+                <a href="voluntario.html">Voluntários</a>
+            </li>
+        </ul>
+        
+        </div>
+        <div class="sair-conta">
+            <ul>
+                <li>
+                    <a href="https://www.flaticon.com/free-icons/user" title="user icons" target="_blank"><img src="img/account.png" alt="">
+                    </a><button id="perfilBtn">Perfil</button></li>
+                <li><a href="https://www.flaticon.com/free-icons/account" title="account icons" target="_blank"><img src="img/exit.png" alt=""></a>
+                    <a href="index.html"><button>Sair da conta</button></a></li>
+            </ul>
+        </div>
+</div>
+
+    <div class="perfil">
+        <div class="foto-perfil">
+            <img id="img-perfil" src="img/user_7324850.png" alt="Foto do perfil">
+            <input type="file" id="upload-perfil1" accept="image/*">
+        </div>
+        <p style="margin-top: 7px;" id="nome-perfil">Gestor</p>
+    </div>
+
+    <div class="voluntarios">
+        <h1>Voluntários</h1>
+        <div class="lista-voluntarios">
+            <div class="voluntario-cadastrado">
+                <img src="img/user_7324850.png" alt="">
+                <p>Nome do voluntário cadastrado</p>
+                <button class="excluir">Excluir</button>
+                <button class="editar">Editar</button>
+            </div>
+            <button class="cadastro">+Cadastrar voluntário</button>
+        </div>
+    </div>
+
+  <!-- Estrutura do Modal -->
+  <div id="cadastroModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <form>
+        <!-- Imagem preview -->
+        <div class="preview-container">
+          <img id="preview" src="img/user_7324850.png" alt="Foto do voluntário">
+        </div>
+
+        <!-- Botão para trocar imagem -->
+        <button type="button" class="upload-btn" id="uploadBtn">Adicionar imagem</button>
+        <input type="file" id="imagem" accept="image/*">
+
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Digite o nome completo">
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" placeholder="000.000.000-00">
+        </div>
+
+        <div class="form-group">
+          <label for="nascimento">Data de Nascimento</label>
+          <input type="date" id="nascimento">
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+        </div>
+
+        <button type="submit" class="submit-btn">Adicionar Voluntário</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    const modal = document.getElementById("cadastroModal");
+    const btn = document.querySelector(".cadastro");
+    const span = document.querySelector(".close");
+    const imagemInput = document.getElementById("imagem");
+    const preview = document.getElementById("preview");
+    const uploadBtn = document.getElementById("uploadBtn");
+
+    btn.onclick = () => modal.style.display = "flex";
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Clicar no botão aciona o input file
+    uploadBtn.onclick = () => imagemInput.click();
+
+    // Preview da imagem escolhida
+    imagemInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          preview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

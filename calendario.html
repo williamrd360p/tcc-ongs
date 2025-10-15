@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calendario.css">
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calendario.css">
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+    <div class="container">
+<div class="navbar">
+    <div class="logo-nav">
+    <img src="img/LOGO.png" alt=""></div>
+        <div class="nav-list">
+          <p>PÁGINAS</p>
+          <ul>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/home" title="Créditos: Flaticon - ícone Home" target="_blank">
+                    <img src="img/home.png" alt="Home">
+                </a>
+                <a href="telainicial-sistema.html">Início</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/cogwheel" title="Créditos: Flaticon - ícone Administração" target="_blank">
+                    <img src="img/settings.png" alt="Administração">
+                </a>
+                <a href="administradores.html">Administração</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/user" title="Créditos: Flaticon - ícone Alunos" target="_blank">
+                    <img src="img/group.png" alt="Alunos">
+                </a>
+                <a href="alunos.html">Alunos</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/calendar" title="Créditos: Flaticon - ícone Calendário" target="_blank">
+                    <img src="img/calendar.png" alt="Calendário">
+                </a>
+                <a href="calendario.html">Calendário</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/care" title="Créditos: Flaticon - ícone Voluntários" target="_blank">
+                    <img src="img/love.png" alt="Voluntários">
+                </a>
+                <a href="voluntario.html">Voluntários</a>
+            </li>
+        </ul>
+        
+        </div>
+        <div class="sair-conta">
+            <ul>
+                <li>
+                    <a href="https://www.flaticon.com/free-icons/user" title="user icons" target="_blank"><img src="img/account.png" alt="">
+                    </a><button id="perfilBtn">Perfil</button></li>
+                <li><a href="https://www.flaticon.com/free-icons/account" title="account icons" target="_blank"><img src="img/exit.png" alt=""></a>
+                    <a href="index.html"><button>Sair da Conta</button></a></li>
+            </ul>
+        </div>
+</div>
+
+    <div class="perfil">
+        <div class="foto-perfil">
+            <img id="img-perfil" src="img/user_7324850.png" alt="Foto do perfil">
+            <input type="file" id="upload-perfil1" accept="image/*">
+        </div>
+        <p style="margin-top: 7px;" id="nome-perfil">Gestor</p>
+    </div>
+        <div class="fundo-calendario">
+            <div class="container-calendario">
+                <!-- Lado esquerdo: Ano -->
+                <div class="calendario-ano">
+                    <button id="voltar">⬆</button>
+                    <div class="ano">
+                        <div class="digito-coluna"><div class="digito">2</div></div>
+                        <div class="digito-coluna"><div class="digito">0</div></div>
+                        <div class="digito-coluna"><div class="digito">2</div></div>
+                        <div class="digito-coluna"><div class="digito">5</div></div>
+                    </div>
+                    <button id="avancar">⬇</button>
+                </div>
+
+                <!-- Lado direito: Calendário -->
+                <div class="calendario-mes">
+                    <div class="mes-controle">
+                        <button id="mes-anterior">◀</button>
+                        <span id="mes-atual">Setembro</span>
+                        <button id="mes-proximo">▶</button>
+                    </div>
+                    <table class="tabela-calendario">
+                        <thead>
+                            <tr>
+                                <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dias-calendario"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2 style="margin-bottom: 15px;" id="modal-dia"></h2>
+
+                <!-- Container da imagem -->
+                <div id="imagem-container" style="position: relative; width:400px; height:100px; margin-bottom:10px;">
+                    <div id="imagem-placeholder" style="width:100%; height:100%; background:#ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        Adicionar Imagem
+                    </div>
+                    <img id="preview-img" src="" alt="" style="display:none; width:100%; height:100%; object-fit:fill; border-radius:8px; position:absolute; top:0; left:0;">
+                </div>
+
+                <!-- Nome do evento -->
+                <label for="nome-evento">Nome do Evento</label>
+                <input type="text" id="nome-evento" placeholder="Nome do evento"><br>
+
+                <!-- Linha de inputs: Local, Horário e Data -->
+                <div class="fila" style="display: flex; gap: 30px; align-items: center; justify-content: center;">
+                    <div>
+                        <label for="local-evento">Local</label>
+                        <input type="text" id="local-evento" placeholder="Local do evento">
+                    </div>
+                    <div>
+                        <label for="hora-evento">Horário</label>
+                        <input type="time" id="hora-evento">
+                    </div>
+                    <div>
+                        <label for="data-evento">Data</label>
+                        <input type="date" id="data-evento">
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:center; gap:20px; margin-top:10px;">
+                    <button id="salvar-evento">Salvar</button>
+                    <button id="fechar">Fechar</button>
+                </div>
+
+                <input type="file" id="imagem-evento" accept="image/*" style="display:none;">
+            </div>
+        </div>
+
+        <!-- Lista lateral de eventos sempre visível -->
+        <div class="eventos-lateral-container">
+            <h2 style="margin-bottom: 10px;">Eventos</h2>
+            <div class="eventos-laranja">
+                <ul id="lista-eventos-lado"></ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+      
+      <script>
+let ano = 2025;
+const anoMin = 2025;
+let mes = new Date().getMonth();
+const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+const digitos = document.querySelectorAll('.digito');
+const mesAtualSpan = document.getElementById('mes-atual');
+const diasCalendario = document.getElementById('dias-calendario');
+const btnAvancar = document.getElementById('avancar');
+const btnVoltar = document.getElementById('voltar');
+
+const modal = document.getElementById("modal");
+const fechar = document.getElementById("fechar");
+const modalDia = document.getElementById("modal-dia");
+const salvarEventoBtn = document.getElementById("salvar-evento");
+const listaEventosLado = document.getElementById("lista-eventos-lado");
+const previewImg = document.getElementById("preview-img");
+
+let diaSelecionado = null;
+let eventoEditando = null; 
+let eventos = {}; 
+
+// Atualiza o ano
+function atualizarAno() {
+  const anoStr = ano.toString().padStart(4,'0');
+  digitos.forEach((d,i) => d.textContent = anoStr[i]);
+  atualizarCalendario();
+  btnVoltar.style.display = ano <= anoMin ? 'none' : 'block';
+  btnAvancar.style.display = 'block';
+}
+
+// Atualiza calendário
+function atualizarCalendario() {
+  mesAtualSpan.textContent = meses[mes];
+  diasCalendario.innerHTML = "";
+
+  const primeiroDia = new Date(ano, mes, 1).getDay();
+  const totalDias = new Date(ano, mes + 1, 0).getDate();
+
+  let tr = document.createElement('tr');
+  let contador = 0;
+
+  for(let i=0; i<primeiroDia; i++){
+    tr.appendChild(document.createElement('td'));
+    contador++;
+  }
+
+  for(let dia=1; dia<=totalDias; dia++){
+    const td = document.createElement('td');
+    td.textContent = dia;
+
+    td.addEventListener("click", () => {
+      diaSelecionado = `${ano}-${mes+1}-${dia}`;
+      modalDia.textContent = `Adicionar evento em ${dia}/${mes+1}/${ano}`;
+
+      // Limpa campos para novo evento
+      document.getElementById("nome-evento").value = "";
+      document.getElementById("local-evento").value = "";
+      document.getElementById("hora-evento").value = "";
+      document.getElementById("imagem-evento").value = "";
+      previewImg.style.display = "none";
+      previewImg.src = "";
+      eventoEditando = null;
+
+      modal.style.display = "flex";
+    });
+
+    tr.appendChild(td);
+    contador++;
+    if(contador % 7 === 0){
+      diasCalendario.appendChild(tr);
+      tr = document.createElement('tr');
+    }
+  }
+  if(tr.children.length > 0){
+    diasCalendario.appendChild(tr);
+  }
+}
+
+// Botões de ano
+btnAvancar.addEventListener('click', ()=>{ ano++; atualizarAno(); });
+btnVoltar.addEventListener('click', ()=>{ if(ano > anoMin) ano--; atualizarAno(); });
+
+// Botões de mês
+document.getElementById('mes-proximo').addEventListener('click', ()=>{ mes = (mes + 1) % 12; atualizarCalendario(); });
+document.getElementById('mes-anterior').addEventListener('click', ()=>{ mes = (mes + 11) % 12; atualizarCalendario(); });
+
+// Fechar modal
+fechar.onclick = () => modal.style.display = "none";
+window.onclick = e => { if(e.target == modal) modal.style.display = "none"; };
+
+// Pré-visualizar imagem
+document.getElementById("imagem-evento").addEventListener("change", function() {
+  if(this.files && this.files[0]){
+    previewImg.src = URL.createObjectURL(this.files[0]);
+    previewImg.style.display = "block";
+  }
+});
+
+// Salvar evento
+salvarEventoBtn.addEventListener("click", () => {
+  const nome = document.getElementById("nome-evento").value;
+  const local = document.getElementById("local-evento").value;
+  const hora = document.getElementById("hora-evento").value;
+  const imagemInput = document.getElementById("imagem-evento");
+
+  if(!nome || !local || !hora){
+    alert("Preencha todos os campos!");
+    return;
+  }
+
+  let imgURL = "";
+  if(imagemInput.files && imagemInput.files[0]){
+    imgURL = URL.createObjectURL(imagemInput.files[0]);
+  }
+
+  // Se editando
+  if(eventoEditando){
+    eventoEditando.nome = nome;
+    eventoEditando.local = local;
+    eventoEditando.hora = hora;
+    if(imgURL) eventoEditando.img = imgURL;
+    eventoEditando.li.textContent = nome;
+    eventoEditando = null;
+    modal.style.display = "none";
+    return;
+  }
+
+  // Novo evento
+  if(!eventos[diaSelecionado]) eventos[diaSelecionado] = [];
+
+  const li = document.createElement("li");
+  li.textContent = nome;
+
+  const novoEvento = { nome, local, hora, img: imgURL, li };
+  eventos[diaSelecionado].push(novoEvento);
+
+  li.addEventListener("click", () => {
+    eventoEditando = novoEvento;
+    document.getElementById("nome-evento").value = novoEvento.nome;
+    document.getElementById("local-evento").value = novoEvento.local;
+    document.getElementById("hora-evento").value = novoEvento.hora;
+    document.getElementById("imagem-evento").value = "";
+    previewImg.src = novoEvento.img || "";
+    previewImg.style.display = novoEvento.img ? "block" : "none";
+    modalDia.textContent = `Editar evento em ${diaSelecionado}`;
+    modal.style.display = "flex";
+  });
+
+  listaEventosLado.appendChild(li);
+
+  // Limpa modal
+  document.getElementById("nome-evento").value = "";
+  document.getElementById("local-evento").value = "";
+  document.getElementById("hora-evento").value = "";
+  document.getElementById("imagem-evento").value = "";
+  previewImg.style.display = "none";
+  previewImg.src = "";
+
+  modal.style.display = "none";
+});
+
+// Inicializa
+atualizarAno();
+
+// Seleciona elementos
+const imagemInput = document.getElementById("imagem-evento");
+const imagemPlaceholder = document.getElementById("imagem-placeholder");
+
+// Ao clicar no placeholder, abre o input de arquivo
+imagemPlaceholder.addEventListener("click", () => {
+    imagemInput.click();
+});
+
+// Quando escolher a imagem, exibe preview
+imagemInput.addEventListener("change", () => {
+    if(imagemInput.files && imagemInput.files[0]){
+        const imgURL = URL.createObjectURL(imagemInput.files[0]);
+        previewImg.src = imgURL;
+        previewImg.style.display = "block";
+    }
+});
+
+
+      </script>
+</body>
+</html>

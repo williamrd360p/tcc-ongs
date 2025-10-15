@@ -1,0 +1,485 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #FFF2CF;
+    overflow-y: hidden;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+}
+
+.navbar{
+    padding: 40px;
+    min-height: 90vh;
+    height: auto;
+    width: 350px;
+    background:linear-gradient(160deg, rgb(255, 175, 14) 60%, rgb(255, 219, 147));
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar img{
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list{
+    margin-right: 150px;
+    margin-bottom: 150px;
+    margin-bottom: 180px;
+}
+
+.nav-list ul{
+    border-left: 2px solid black;
+}
+
+ul{
+    list-style: none;
+}
+
+.nav-list li{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    font-size: 1.6rem;
+
+}
+.nav-list p{
+    font-size: 1.9rem;
+}
+
+.nav-list img{
+    width: 40px;
+    margin-right: 5px;
+}
+
+.nav-list li{
+    display: flex;
+    align-items: center;
+}
+
+.numero{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.sair-conta{
+    margin-top: -150px;
+    margin-right: 150px;
+}
+
+.sair-conta ul{
+    width: 190px;
+}
+
+.sair-conta li{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sair-conta img{
+    width: 40px;
+}
+
+.navbar button{
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.perfil{
+    position: absolute;
+    top: 4%;
+    right: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-perfil {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    position: relative;
+    cursor: pointer;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.foto-perfil:hover img {
+    opacity: 0.7; 
+}
+
+.foto-perfil input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.fundo-calendario {
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+  .container-calendario {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 182, 86);
+    border: 4px solid black;
+    height: auto;
+    width: 800px;
+    padding-right: 20px;
+  }
+  
+
+  .calendario-ano {
+    margin-right: 15px;
+    height: 100%;
+    width: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+
+  .ano {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: none;
+    gap: 40px;
+  }
+  
+  .digito-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 80px;
+    border-radius: 5px;
+    font-size:6rem;
+  }
+  
+  .digito-coluna .digito {
+    line-height: 80px;
+    text-align: center;
+  }
+  
+  
+  .calendario-ano > button {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: 0.2s;
+  }
+  
+  
+  .calendario-mes {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Controle de mês (◀ mês ▶) */
+  .calendario-mes .mes-controle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size:3rem;
+  }
+  
+  /* Botões de mês - apenas dentro de .calendario-mes */
+  .calendario-mes .mes-controle button {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 2rem;
+    border-radius: 5px;
+    transition: 0.2s;
+  }
+
+  
+  /* Tabela do calendário */
+  .calendario-mes .tabela-calendario {
+    border-collapse: collapse;
+  }
+
+  #dias-calendario{
+    font-size: 4rem;
+  }
+  
+  .calendario-mes .tabela-calendario th,
+  .calendario-mes .tabela-calendario td {
+    border: 3px solid #000000;
+    background-color: rgb(255, 213, 75);
+    padding: 10px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+  }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffb64f;
+  padding: 20px;
+  border-radius: 10px;
+  width: 700px;
+  height: 450px;
+  text-align: left;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#imagem-placeholder {
+    width: 600px;
+    height: 150px;
+    background-color: #d3d3d3;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#imagem-placeholder.imagem-adicionada {
+    display: none;
+}
+
+
+/* Labels acima dos inputs */
+.modal-content label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Inputs estilo uniforme */
+.modal-content input[type="text"],
+.modal-content input[type="time"],
+.modal-content input[type="date"] {
+  padding: 10px;
+  width: 150px;
+  border: 1px solid #000000;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 1em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Botão salvar */
+.modal-content button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#salvar-evento {
+    background-color: rgb(171, 27, 255);
+    color: white;
+}
+
+#fechar {
+    background-color: rgb(255, 28, 28);
+    color: white;
+}
+
+/* Preview de imagem */
+#preview-img {
+  width: 600px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: #d3d3d3;
+}
+
+/* Input file escondido ou minimalista */
+#imagem-evento {
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+/* Inputs em linha (fila) */
+.fila {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lista lateral de eventos */
+.eventos-lado {
+  position: fixed;
+  right: 20px;
+  top: 100px;
+  width: 250px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.eventos-lado h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#lista-eventos-lado {
+  list-style: none;
+  padding: 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#lista-eventos-lado li {
+  background: rgb(167, 25, 255);
+  color: white;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#lista-eventos-lado li:hover {
+  background: #9c12ff;
+}
+
+/* Scrollbar da lista lateral */
+#lista-eventos-lado::-webkit-scrollbar {
+  width: 6px;
+}
+
+#lista-eventos-lado::-webkit-scrollbar-thumb {
+  background-color: rgb(164, 18, 255);
+  border-radius: 3px;
+}
+
+.eventos-lateral-container{
+    margin-top: 150px;
+    margin-left: 120px;
+}
+
+.eventos-laranja{
+    padding: 10px;
+    padding-right: 10px;
+    background-color: rgb(255, 182, 86);
+    height: 100%;
+    width: 29vh;
+    border-top-left-radius: 3%;
+    border: 2px solid black;
+}
+
+.lista-eventos-lado{
+    list-style: none; 
+    padding: 0; 
+    margin: 0; color: 
+    rgb(199, 30, 255);
+    font-size: 1.9rem;
+    border: 2px solid black;
+}
+
+  @media (max-width:1600px){
+    .navbar{
+        height: 95vh
+    }
+    .logo-nav{
+        width: 80%;
+    }
+    .navbar p{
+        font-size: 1.8rem;
+    }
+    .navbar a{
+        font-size: 1.6rem;
+    }
+    .nav-list img{
+        width: 90%;
+    }
+    .sair-conta{
+        position: absolute;
+        bottom: 5%;
+    }
+    .fundo-calendario{
+        margin-left: 100px;
+    }
+    .container-calendario{
+        width: 600px;
+    }
+    #dias-calendario{
+        font-size: 3rem;
+    }
+    .digito-coluna{
+        font-size: 4rem;
+    }
+    .ano{
+        gap: 20px;
+    }
+}

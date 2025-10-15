@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administradores</title>
+    <link rel="stylesheet" href="administradores.css" />
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-nav">
+                <img src="img/LOGO.png" alt="">
+            </div>
+            <div class="nav-list">
+                <p>PÁGINAS</p>
+                <ul>
+                    <li>
+                        <a href="https://www.flaticon.com/free-icons/home" title="Créditos: Flaticon - ícone Home" target="_blank">
+                            <img src="img/home.png" alt="Home">
+                        </a>
+                        <a href="telainicial-sistema.html">Início</a>
+                    </li>
+                    <li>
+                        <a href="https://www.flaticon.com/free-icons/cogwheel" title="Créditos: Flaticon - ícone Administração" target="_blank">
+                            <img src="img/settings.png" alt="Administração">
+                        </a>
+                        <a href="administradores.html">Administração</a>
+                    </li>
+                    <li>
+                        <a href="https://www.flaticon.com/free-icons/user" title="Créditos: Flaticon - ícone Alunos" target="_blank">
+                            <img src="img/group.png" alt="Alunos">
+                        </a>
+                        <a href="alunos.html">Alunos</a>
+                    </li>
+                    <li>
+                        <a href="https://www.flaticon.com/free-icons/calendar" title="Créditos: Flaticon - ícone Calendário" target="_blank">
+                            <img src="img/calendar.png" alt="Calendário">
+                        </a>
+                        <a href="calendario.html">Calendário</a>
+                    </li>
+                    <li>
+                        <a href="https://www.flaticon.com/free-icons/care" title="Créditos: Flaticon - ícone Voluntários" target="_blank">
+                            <img src="img/love.png" alt="Voluntários">
+                        </a>
+                        <a href="voluntario.html">Voluntários</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sair-conta">
+                <ul>
+                    <li>
+                        <a href="#"><img src="img/account.png" alt=""></a>
+                        <button id="perfilBtn">Perfil</button>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/exit.png" alt=""></a>
+                        <a href="index.html"><button>Sair da Conta</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Perfil do usuário -->
+        <div class="perfil">
+            <div class="foto-perfil">
+                <img id="img-perfil" src="img/user_7324850.png" alt="Foto do perfil" />
+                <input type="file" id="upload-perfil1" accept="image/*" />
+            </div>
+            <p style="margin-top: 7px" id="nome-perfil">Gestor</p>
+        </div>
+
+        <!-- Lista de administradores -->
+        <div class="administradores">
+            <h1 style="font-size: 60px; margin-top: 100px">Administradores</h1>
+            <div class="adms">
+                <div class="perfil-adm">
+                    <img src="img/jucara.png" alt="" />
+                    <p>Juçara Maria Silva</p>
+                    <button class="editar">Editar Conta</button>
+                    <button class="excluir">Excluir Conta</button>
+                </div>
+                <div class="logar-adm">
+                    <p>+</p>
+                    <button>Cadastrar Administradores</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Administrador -->
+        <div id="modal-cadastro-adm" class="modal-exclusao">
+            <form id="form-cadastro" class="modal-conteudo">
+                <h2>Novo Administrador</h2>
+                <div class="foto-perfil-cadastro">
+                    <img id="img-cadastro" src="img/user_7324850.png" alt="Foto do administrador">
+                    <input type="file" id="upload-cadastro" accept="image/*">
+                </div>
+                <label for="nome">Nome Completo:</label><br />
+                <input type="text" name="nome" id="nome" required><br /><br />
+                <label for="email">Email:</label><br />
+                <input type="email" name="email" id="email" required><br /><br />
+                <label for="senha">Senha:</label><br />
+                <input type="password" name="senha" id="senha" required><br /><br />
+                <div class="botoes-modal">
+                    <button type="button" id="cancelar-cadastro">Cancelar</button>
+                    <button type="submit" id="confirmar-cadastro">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal Exclusão -->
+        <div id="modal-excluir-adm" class="modal-exclusao">
+            <div class="modal-conteudo">
+                <h2>Confirmar Exclusão</h2>
+                <p>Tem certeza que deseja excluir <span id="nome-adm-exclusao"></span>? Essa ação não poderá ser desfeita.</p>
+                <div class="botoes-modal">
+                    <button id="cancelar-exclusao">Cancelar</button>
+                    <button id="confirmar-exclusao" class="confirmar">Excluir</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Modal Editar Administrador (agora com email e senha) -->
+<div id="modal-editar-adm" class="modal-exclusao">
+    <form class="modal-conteudo">
+        <h2>Editar Administrador</h2>
+        <div class="foto-perfil-cadastro">
+            <img id="img-editar" src="img/user_7324850.png" alt="Foto do administrador">
+            <input type="file" id="upload-editar" accept="image/*">
+        </div>
+
+        <label for="nome-editar">Nome Completo:</label><br />
+        <input type="text" id="nome-editar" required><br /><br />
+
+        <label for="email-editar">Email:</label><br />
+        <input type="email" id="email-editar" required><br /><br />
+
+        <label for="senha-editar">Senha:</label><br />
+        <input type="password" id="senha-editar" required><br /><br />
+
+        <div class="botoes-modal">
+            <button type="button" id="cancelar-editar">Cancelar</button>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</div>
+
+
+        <!-- Modal Nova Anotação -->
+        <div id="modal-anotacao" class="modal-exclusao">
+            <form class="modal-conteudo">
+                <h2>Nova Anotação</h2>
+                <textarea id="nova-anotacao" rows="4" required></textarea>
+                <div class="botoes-modal">
+                    <button type="button" id="cancelar-anotacao">Cancelar</button>
+                    <button type="submit">Adicionar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Anotações gerais -->
+        <div class="anotacoes">
+            <h2>Anotações Gerais:</h2>
+            <div class="anotacoes1">
+                <button id="anotar">+ Inserir Anotação</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

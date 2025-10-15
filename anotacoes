@@ -1,0 +1,334 @@
+login.html (gestao)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Gestão</title>
+    <link rel="stylesheet" href="login.css" /> <!-- seu css aqui -->
+</head>
+<body>
+    <h1>GESTÃO</h1>
+    <p>Área Reservada Apenas para Administradores</p>
+    <div class="acesso-gestao">
+        <form action="login.php" method="POST" class="login">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required />
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required />
+            </div>
+            <div class="button">
+                <button type="submit">ENTRAR</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+db.php :
+
+<?php
+// Conexão com banco de dados MySQL (XAMPP padrão)
+
+$host = 'localhost';
+$db   = 'seu_banco'; // altere para o nome do seu banco
+$user = 'root';       // padrão XAMPP
+$pass = '';           // padrão XAMPP
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    exit('Erro na conexão: ' . $e->getMessage());
+}
+?>
+
+login.php 
+
+<?php
+session_start();
+require 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+
+    // Busca o administrador pelo email
+    $stmt = $pdo->prepare("SELECT * FROM administradores WHERE email = ?");
+    $stmt->execute([$email]);
+    $admin = $stmt->fetch();
+
+    if ($admin) {
+        // Verifica a senha com password_verify (supondo que senha está hash)
+        if (password_verify($senha, $admin['senha'])) {
+            // Login ok, salva dados na sessão
+            $_SESSION['admin_id'] = $admin['id'];
+            $_SESSION['admin_nome'] = $admin['nome'];
+            $_SESSION['admin_email'] = $admin['email'];
+
+            header('Location: telainicial-sistema.php');
+            exit;
+        }
+    }
+
+    // Se chegou aqui é erro no login
+    $_SESSION['erro_login'] = "Email ou senha inválidos";
+    header('Location: login.html');
+    exit;
+}
+?>
+
+telainicial-sistema 
+
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: login.html');
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema - Espaço Tia Jú</title>
+    <link rel="stylesheet" href="telainicial-sistema.css" />
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="logo-nav">
+            <img src="img/LOGO.png" alt="Logo" />
+        </div>
+        <div class="nav-list">
+            <p>PÁGINAS</p>
+            <ul>
+                <li>
+                    <a href="telainicial-sistema.php"><img src="img/home.png" alt="Home" /></a>
+                    <a href="telainicial-sistema.php">Início</a>
+                </li>
+                <li>
+                    <a href="administradores.php"><img src="img/settings.png" alt="Administração" /></a>
+                    <a href="administradores.php">Administração</a>
+                </li>
+                <li>
+                    <a href="alunos.html"><img src="img/group.png" alt="Alunos" /></a>
+                    <a href="alunos.html">Alunos</a>
+                </li>
+                <li>
+                    <a href="calendario.html"><img src="img/calendar.png" alt="Calendário" /></a>
+                    <a href="calendario.html">Calendário</a>
+                </li>
+                <li>
+                    <a href="voluntario.html"><img src="img/love.png" alt="Voluntários" /></a>
+                    <a href="voluntario.html">Voluntários</a>
+                </li>
+            </ul>
+        </div>
+        <div class="sair-conta">
+            <ul>
+                <li>
+                    <img src="img/account.png" alt="Conta" />
+                    <button id="perfilBtn"><?php echo htmlspecialchars($_SESSION['admin_nome']); ?></button>
+                </li>
+                <li>
+                    <a href="logout.php"><button>Sair da conta</button></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="perfil">
+        <div class="foto-perfil">
+            <img id="img-perfil" src="img/user_7324850.png" alt="Foto do perfil" />
+            <input type="file" id="upload-perfil1" accept="image/*" />
+        </div>
+        <p style="margin-top: 7px;" id="nome-perfil"><?php echo htmlspecialchars($_SESSION['admin_nome']); ?></p>
+    </div>
+
+    <div class="conteudo">
+        <div class="topo">
+            <h1>Sistema<br>Espaço Tia Jú</h1>
+        </div>
+        <div class="cards">
+            <!-- Seus cards aqui, você pode adaptar para preencher com dados do banco -->
+            <div class="flex">
+                <div class="card">
+                    <div class="card-flex"><img src="img/audience.png" alt="" /> <p class="numero" id="qtd-alunos">--</p></div>
+                    <p>Alunos cadastrados</p>
+                </div>
+                <div class="card">
+                    <div class="card-flex"><img src="img/love1.png" alt="" /> <p class="numero" id="qtd-voluntarios">--</p></div>
+                    <p>Voluntários</p>
+                </div>
+                <div class="card">
+                    <div class="card-flex"><img src="img/manager.png" alt="" /><p class="numero" id="qtd-admins">--</p></div>
+                    <p>Administradores</p>
+                </div>
+            </div>
+            <div class="flex1">
+                <div class="card">
+                    <div class="card-flex"><img src="img/event.png" alt="" /><p class="numero" id="qtd-eventos">--</p></div>
+                    <p>Eventos</p>
+                </div>
+                <div class="card">
+                    <div class="card-flex"><img src="img/text.png" alt="" /><p class="numero" id="qtd-anotacoes">--</p></div>
+                    <p>Anotações</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="evento">
+            <h3>Próximo evento:</h3>
+            <div class="capa-evento">
+                <span class="placeholder-text">Sem eventos próximos</span>
+                <img id="imagem-evento" src="" alt="Capa do evento" />
+            </div>
+            <p id="nome-evento">Nome do evento</p>
+            <small id="data-evento" style="font-size: 2rem;">--/--/----</small>
+        </div>
+    </div>
+
+    <!-- Modal Perfil pode continuar aqui -->
+
+</div>
+<script src="sistema.js" defer></script>
+</body>
+</html>
+
+administradores 
+
+<?php
+session_start();
+
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: login.html');
+    exit;
+}
+
+require 'db.php';
+
+// Para carregar administradores do banco
+$stmt = $pdo->query("SELECT id, nome, email FROM administradores ORDER BY nome");
+$administradores = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Administradores</title>
+    <link rel="stylesheet" href="administradores.css" />
+    <script src="sistema.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="logo-nav">
+            <img src="img/LOGO.png" alt="Logo" />
+        </div>
+        <div class="nav-list">
+            <p>PÁGINAS</p>
+            <ul>
+                <li>
+                    <a href="telainicial-sistema.php"><img src="img/home.png" alt="Home" /></a>
+                    <a href="telainicial-sistema.php">Início</a>
+                </li>
+                <li>
+                    <a href="administradores.php"><img src="img/settings.png" alt="Administração" /></a>
+                    <a href="administradores.php">Administração</a>
+                </li>
+                <li>
+                    <a href="alunos.html"><img src="img/group.png" alt="Alunos" /></a>
+                    <a href="alunos.html">Alunos</a>
+                </li>
+                <li>
+                    <a href="calendario.html"><img src="img/calendar.png" alt="Calendário" /></a>
+                    <a href="calendario.html">Calendário</a>
+                </li>
+                <li>
+                    <a href="voluntario.html"><img src="img/love.png" alt="Voluntários" /></a>
+                    <a href="voluntario.html">Voluntários</a>
+                </li>
+            </ul>
+        </div>
+        <div class="sair-conta">
+            <ul>
+                <li>
+                    <img src="img/account.png" alt="Conta" />
+                    <button id="perfilBtn"><?php echo htmlspecialchars($_SESSION['admin_nome']); ?></button>
+                </li>
+                <li>
+                    <a href="logout.php"><button>Sair da Conta</button></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="perfil">
+        <div class="foto-perfil">
+            <img id="img-perfil" src="img/user_7324850.png" alt="Foto do perfil" />
+            <input type="file" id="upload-perfil1" accept="image/*" />
+        </div>
+        <p style="margin-top: 7px;" id="nome-perfil"><?php echo htmlspecialchars($_SESSION['admin_nome']); ?></p>
+    </div>
+
+    <div class="administradores">
+        <h1 style="font-size: 60px; margin-top: 100px">Administradores</h1>
+        <div class="adms">
+            <?php foreach ($administradores as $adm): ?>
+                <div class="perfil-adm">
+                    <img src="img/user_7324850.png" alt="Foto do administrador" />
+                    <p><?php echo htmlspecialchars($adm['nome']); ?></p>
+                    <button class="editar" data-id="<?php echo $adm['id']; ?>">Editar Conta</button>
+                    <button class="excluir" data-id="<?php echo $adm['id']; ?>">Excluir Conta</button>
+                </div>
+            <?php endforeach; ?>
+            <div class="logar-adm">
+                <p>+</p>
+                <button id="btn-cadastrar-adm">Cadastrar Administradores</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro, Exclusão e Edição aqui -->
+    <!-- Você pode implementar os modais e a lógica via JS e PHP -->
+
+</div>
+<script src="sistema.js" defer></script>
+</body>
+</html>
+
+
+logout 
+
+<?php
+session_start();
+session_destroy();
+header('Location: login.html');
+exit;
+?>
+
+
+implementar ao sistema js
+CREATE TABLE administradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+
+

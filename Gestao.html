@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Gestão</title>
+    <link rel="stylesheet" href="login.css" /> <!-- seu css aqui -->
+</head>
+<body>
+    <h1>GESTÃO</h1>
+    <p>Área Reservada Apenas para Administradores</p>
+    <div class="acesso-gestao">
+        <form action="login.php" method="POST" class="login">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required />
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required />
+            </div>
+            <div class="button">
+                <button type="submit">ENTRAR</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+

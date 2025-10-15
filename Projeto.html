@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+<div class="navbar">
+    <div class="Logo"><img src="img/LOGO.png" alt="" class="Logo1"></div>
+     <ul class="nav-list">
+         <li class="nav-item"><a href="index.html">Início</a></li>
+         <li class="nav-item"><a href="Projeto.html">Projeto</a></li>
+         <li class="nav-item"><a href="Serviços.html">Serviços</a></li>
+         <li class="nav-item"><a href="Sobrenos.html">Sobre Nós</a></li>
+         <li class="nav-item"><a href="Gestao.html">Gestão</a></li>
+         <li class="nav-item"><a id="contato" href="#rodape">Contato</a></li>
+         <li class="nav-item" id="Colabore"><a id="colabore" href="Colabore.html">Colabore</a></li>
+     </ul>
+</div>
+
+<div class="fundo"></div>
+<div class="frente">
+    <img src="img/Rectangle 58 (1).png" alt="">
+</div>
+
+<div class="Projeto">
+    <h1>PROJETO</h1>
+    <p>Estimular a integração social, potencial artístico e a cultura através de vivências em oficinas de arte.
+        <br>
+        <br>
+        Resgatar o valor da leitura, do pensar e do agir é a missão do Espaço Tia Jú. Com esse projeto, vamos possibilitar que mais crianças, adultos e idosos possam conhecer a arte, a literatura e abrir um portal para o futuro.
+        <br>
+        <br>
+        Faz-se entanto necessário que busquemos resgatar o valor da leitura, como ato de prazer e requisito para emancipação social e promoção da cidadania, o mesmo ocorre com outras tantas facetas do ser em desenvolvimentos que estão se perdendo nesta geração excessivamente tecnológica e pouco social. Por isso introduzimos oficinas de grafite e artes/artesanato, para que além das interações sociais, tenhamos os pequenos pondo a " mão na massa", pintando com tintas reais, em locais reais que vão muito além das telas frias de seus eletrônicos.
+        <br>
+        <br>
+        A construção de objetos, jogos, presentes e outros em aulas de artes fazem as crianças desenvolverem vários aspectos ao pensar no que será feito, participando de todas as etapas de construção e por fim utilizando suas criações com orgulho.
+        <br>
+        <br>
+        Muitas vezes fazemos resgate de brincadeiras e utensílios, trazendo-os para o contexto atual das referências das crianças, como por exemplo, construir estilingues de cartolina, com temas de desenhos e personagens animados atuais, transformando jogos virtuais em jogos reais, como fizemos como o famoso aplicativo "angry birds", com estilingues, alvos e temática reais feitas pelos pequenos.</p>
+</div>
+
+<div class="rodape" id="rodape">
+    <div class="logo-rodape">
+        <img src="img/LOGO.png" alt="">
+      </div>
+      <div class="inf-rodape">
+        <div class="redes">
+          <h1>Redes Sociais</h1>
+          <div class="insta"><a href="https://www.flaticon.com/br/icones-gratis/logotipo-do-instagram" title="logotipo do instagram ícones" target="_blank"> <img src="img/instagram (1).png" alt=""></a><p>@espacotiaju</p></div>
+          <div class="facebook"><a href="https://www.flaticon.com/br/icones-gratis/facebook" title="facebook ícones" target="_blank"><img src="img/facebook (1).png" alt=""></a>
+          <p style="color: black;">Espaço de Leitura Tia Jú</p></div>
+          <div class="youtube"><a href="https://www.flaticon.com/br/icones-gratis/youtube" title="youtube ícones" target="_blank"><img src="img/youtube.png" alt=""></a>
+          <p>@EspaçoTiaJu</p></div>
+    
+        </div>
+        <div class="formas-contato">
+          <h1>Formas de Contato</h1>
+          <div class="whatsapp"><a href="https://www.flaticon.com/br/icones-gratis/whatsapp" title="whatsapp ícones" target="_blank"><img src="img/whatsapp (1).png" alt=""></a><p style="color: black;">+55 13 99638-4626</p></div>
+          <div class="email">
+            <a href="https://www.flaticon.com/br/icones-gratis/gmail" title="gmail ícones" target="_blank"><img src="img/gmail.png" alt=""></a>
+            <p>associacaotiajumongagua@gmail.com</p>
+          </div>
+        </div>
+        <div class="localizacao">
+          <h1>Localização</h1>
+          <p>Rua Santa Cecilia, 560 Bairro: Agenor de Campos CEP: 11730-000 Município: Mongaguá Estado: São Paulo</p>
+        </div>
+      </div>
+</div>
+
+<script>
+function scrollToDuration(target, duration) {
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY;
+    const distance = end - start;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1); // de 0 a 1
+        window.scrollTo(0, start + distance * easeInOutQuad(progress));
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+    }
+
+    requestAnimationFrame(animation);
+}
+const linkRodape = document.getElementById('contato');
+const rodape = document.getElementById('rodape');
+
+linkRodape.addEventListener('click', function(e){
+    e.preventDefault();
+    scrollToDuration(rodape, 1300);
+});
+</script>
+</body>
+</html>

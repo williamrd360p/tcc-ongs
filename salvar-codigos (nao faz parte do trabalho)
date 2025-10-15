@@ -1,0 +1,76 @@
+
+@media (max-width:768px){
+    .navbar{
+        height: 7vh;
+    }
+    .nav-list{
+        display: none;
+    }
+    .Tela-inicial{
+        margin-top: 5vh;
+    }
+    .Logo1{
+        width: 5vh;
+    }
+    .Logo-inicio{
+        width: 7rem;
+        top: 14vh;
+    }
+    .desc-inicio{
+        max-width: 18rem;
+        font-size: 9px;
+        height: 8rem;
+        font-weight: 600;
+    }
+    .desc-inicio h2{
+        font-size: 20px;
+    }
+
+    .desc-inicio p{
+        max-width: 90%;
+    }
+
+    .desc-inicio button{
+        width: 15vh;
+        height: 5vh;
+        font-size: 0.5rem;
+    }
+    .redes-sociais{
+        display: none;
+    }
+}
+
+<button id="inf-aluno">≡</button>
+
+<div class="tiktok"><a href="https://www.flaticon.com/br/icones-gratis/tiktok" title="tiktok ícones" target="_blank"><img src="img/tiktok.png" alt=""></a>
+<p>@espaco.tia.ju</p>
+</div>
+
+    <div class="navbar">
+        <img src="img/LOGO.png" alt="">
+    <div class="navlist">  
+    <p>PÁGINAS</p>
+        <div class="nav-list">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Administração</a></li>
+                <li><a href="">Alunos</a></li>
+                <li><a href="">Calendário</a></li>
+                <li><a href="">Voluntários</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="inf">
+        <ul>
+            <ul>
+                <li><a href="">perfil</a></li>
+                <li><a href="">Sair da conta</a></li>
+            </ul>
+        </ul>
+      </div>  
+    </div>
+
+
+
+      </div>
+      
